@@ -1,0 +1,198 @@
+= Person-service
+Author;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+Person-service is a RESTful microservice for find, create, update and delete people.
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource, full updates only
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests. +
+The actual response will depend on the request method used. +
+In a GET request, the response will contain an entity corresponding to the requested resource. +
+In a POST request, the response will contain an entity describing or containing the result of the action.
+
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
+
+[[resources]]
+= Resources
+
+
+[[resources-person]]
+== Person
+The Person resource is used to create, modify and list people.
+
+[[resource-people-findAll]]
+=== Listing People
+A `GET` request lists all of the service's people.
+
+include::{snippets}/test-find-all/http-request.adoc[]
+
+==== Example request
+
+include::{snippets}/test-find-all/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/test-find-all/http-response.adoc[]
+
+==== Response Fields
+
+include::{snippets}/test-find-all/response-fields.adoc[]
+
+==== Response Headers
+
+include::{snippets}/test-find-all/response-headers.adoc[]
+
+[[resource-people-findOne]]
+=== Finding Person
+A `GET` request to find a specific Person.
+
+include::{snippets}/test-find-one/http-request.adoc[]
+
+==== Example request
+
+include::{snippets}/test-find-one/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/test-find-one/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/test-find-one/http-response.adoc[]
+
+==== Response Fields
+
+include::{snippets}/test-find-one/response-fields.adoc[]
+
+==== Response Headers
+
+include::{snippets}/test-find-one/response-headers.adoc[]
+
+[[resource-people-save]]
+=== Saving Person
+A `POST` request to save a Person.
+
+include::{snippets}/test-save/http-request.adoc[]
+
+==== Example request
+
+include::{snippets}/test-save/curl-request.adoc[]
+
+==== Request Fields
+
+include::{snippets}/test-save/request-fields.adoc[]
+
+==== Request Headers
+
+include::{snippets}/test-save/request-headers.adoc[]
+
+==== Example response
+
+include::{snippets}/test-save/http-response.adoc[]
+
+==== Response Fields
+
+include::{snippets}/test-save/response-fields.adoc[]
+
+==== Response Headers
+
+include::{snippets}/test-save/response-headers.adoc[]
+
+[[resource-people-update]]
+=== Updating Person
+A `PUT` request to update a Person.
+
+include::{snippets}/test-update/http-request.adoc[]
+
+==== Example request
+
+include::{snippets}/test-update/curl-request.adoc[]
+
+==== Request Fields
+
+include::{snippets}/test-update/request-fields.adoc[]
+
+==== Request Headers
+
+include::{snippets}/test-update/request-headers.adoc[]
+
+==== Example response
+
+include::{snippets}/test-update/http-response.adoc[]
+
+==== Response Fields
+
+include::{snippets}/test-update/response-fields.adoc[]
+
+==== Response Headers
+
+include::{snippets}/test-update/response-headers.adoc[]
+
+[[resource-people-delete]]
+=== Removing People
+A `DELETE` request to remove a Person.
+
+include::{snippets}/test-delete/http-request.adoc[]
+
+==== Example request
+
+include::{snippets}/test-delete/curl-request.adoc[]
+
+==== Path Parameters
+
+include::{snippets}/test-delete/path-parameters.adoc[]
+
+==== Example response
+
+include::{snippets}/test-delete/http-response.adoc[]
+
+
+//include::{snippets}/findAll/http-response.adoc[]
+//The {snippets} placeholder is replaced by Spring Rest Doc to the target/generated-snippets folder.
